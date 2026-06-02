@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mtg_companion/theme/main_theme.dart';
 
 class TextBoxed extends StatelessWidget {
   final String text;
@@ -9,14 +10,14 @@ class TextBoxed extends StatelessWidget {
   final Color text_color;
   final Color bg_color;
 
-  TextBoxed({
+  const TextBoxed({super.key,
     required this.text,
-    required this.border_radius,
-    required this.padding,
-    required this.margin,
+    this.border_radius = BORDER_RADIUS,
+    this.padding = EdgeInsets.zero,
+    this.margin = EdgeInsets.zero,
     required this.font_size,
-    required this.text_color,
-    required this.bg_color
+    this.text_color = TEXT_COLOR,
+    this.bg_color = WIDGET_BG_COLOR
   });
 
   @override
