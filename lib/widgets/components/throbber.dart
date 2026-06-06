@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 
-class Throbber extends StatelessWidget{
+class Throbber extends StatelessWidget {
   const Throbber({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: CircularProgressIndicator(),
-    );
+    return const Center(child: CircularProgressIndicator());
   }
 }

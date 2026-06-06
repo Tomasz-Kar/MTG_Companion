@@ -1,34 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:mtg_companion/theme/main_theme.dart';
+import 'package:mtg_companion/themes/main_theme.dart';
 
 class TextBoxed extends StatelessWidget {
+  static const EdgeInsets _PADDING = EdgeInsets.all(10);
+  static const EdgeInsets _MARGIN = EdgeInsets.symmetric(vertical: 5);
   final String text;
-  final BorderRadius border_radius;
-  final EdgeInsets padding;
-  final EdgeInsets margin;
-  final double font_size;
-  final Color text_color;
-  final Color bg_color;
+  final BorderRadius borderRadius;
 
-  const TextBoxed({super.key,
+  const TextBoxed({
+    super.key,
     required this.text,
-    this.border_radius = BORDER_RADIUS,
-    this.padding = EdgeInsets.zero,
-    this.margin = EdgeInsets.zero,
-    required this.font_size,
-    this.text_color = TEXT_COLOR,
-    this.bg_color = WIDGET_BG_COLOR
+    this.borderRadius = MainTheme.BORDER_RADIUS,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: margin,
+      margin: _MARGIN,
       decoration: BoxDecoration(
-        color: bg_color,
-        borderRadius: border_radius
+        color: Theme.of(context).colorScheme.surface,
+        borderRadius: borderRadius,
       ),
-      child: Padding(padding: padding, child: Text(text, style: TextStyle(fontSize: font_size, color: text_color)),
-    ));
+      child: Padding(
+        padding: _PADDING,
+        child: Text(text, style: Theme.of(context).textTheme.bodyMedium),
+      ),
+    );
   }
 }

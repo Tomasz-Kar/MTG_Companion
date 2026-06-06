@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'widgets/screens/home_screen.dart';
-import 'theme/main_theme.dart';
+import 'themes/main_theme.dart';
+import 'package:hive_ce_flutter/hive_flutter.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Hive.initFlutter();
+  await Hive.openBox("cards");
+  await Hive.openBox("sets");
   runApp(const MyApp());
 }
 
